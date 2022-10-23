@@ -1,0 +1,203 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+</head>
+<body>
+  <div class="score">Score:<span id="val" >0</span></div>
+
+  <div class="main_layout">
+<div class="header">
+  <nav class="option">
+  <ul>
+  <li class="option"><i class="fa-solid fa-bars"></i>  </li>
+</ul>
+</nav>
+<nav id="list-1">
+<ul>
+<li  id="aboutme" onclick="goto('./index.html')">
+    About me
+    </li>
+  <li id="workexp" onclick="goto('./workexp.html')">
+    Work Experience
+</li>
+    <li id="port" class="current"  onclick="goto('./portfolio.html')">
+        Portfolio    </li>
+        <li id="res" onclick="window.open('./assets/BenetouSmaragdi_Resume.pdf')">
+          Resume
+        </li>
+
+
+
+  </ul>
+
+</nav>
+<nav id="list-2">
+<ul class="contact-list">
+
+  <li onclick="window.open('https://www.linkedin.com/in/smaragdabenetou')">
+<i class="fa-brands fa-linkedin"></i>    </li>
+
+<li onclick="copyToClipboard('benetou.smaragda@gmail.com')" >
+<i class="fa-solid fa-envelope"></i>  </li>
+
+  </ul>
+
+</nav>
+</div>
+<div class="content">
+<div class="outer">
+
+
+<div class="main pg-1 lg-main">
+<div class="text  ">
+Labyrinth game in C++ using ncurses for graphics. Many changes have to be done in order to be a more fun game so its purpose is solely to showcase my understanding of C++ and its object-oriented nature.
+Link: <a href="https://github.com/smaragben/labyrinthgame" target="_blank">https://github.com/smaragben/labyrinthgame</a>.
+</div>
+<div class="image lg-img noborder">
+<img class="noborder" src="./img/labyrinth.png" />
+
+</div>
+
+</div>
+<div class="main pg-2 lg-main">
+<div class="text ">
+Flutter mobile application in Dart showcasing the Prom Racing FSAE team. It includes photos, news and quizzes on the Formula Student Rules. Also connected with Firebase Database. Link: <a href="https://github.com/smaragben/promapp" target="_blank">https://github.com/smaragben/promapp</a>
+</div>
+<div class="image noborder lg-img">
+<img class="noborder" src="./img/app.png" />
+
+</div>
+
+</div>
+<div class="main pg-3 small-main">
+<div class="aboutme">
+This website implemented with Javascript, pure CSS and HTML.Link:<a href="https://github.com/smaragben/personalpage" target="_blank"> https://github.com/smaragben/personalpage</a>
+</div>
+
+
+</div>
+
+<div class="main pg-4 lg-main">
+<div class="text ">
+Ros implementation of mobile robot wall following and localization using PD controller and EKF filter. Visualized in Gazebo environment. Link: <a href=" https://github.com/smaragben/mobile_robot" target="_blank">https://github.com/smaragben/mobile_robot</a>
+</div>
+<div class="image noborder lg-img">
+<img class="noborder" src="./img/robot.png" />
+
+</div>
+
+</div>
+
+
+<div class="main pg-5 lg-main">
+<div class="text ">
+Prom Racing Telemetry web application. Implemented with Node.Js server. Signals from vehicle are recieved from Telemetry Hub that is connected to the laptop running the server and posted to localhost Grafana server for realtime graphs and InfluxDb server. Grafana is also connected to InfluxDb for non-realtime graphs.
+</div>
+<div class="image noborder lg-img">
+<img class="noborder" src="./img/telemetry.png" />
+
+</div>
+
+</div>
+
+</div>
+<div class="indicators">
+  <ul>
+    <li class="ind chos" id="ind-1">
+
+      </li>
+    <li class="ind"  id="ind-2" >
+  </li>
+  <li class="ind"  id="ind-3" >
+</li>
+<li class="ind"  id="ind-4" >
+</li>
+<li class="ind"  id="ind-5" >
+</li>
+    </ul>
+
+
+</div>
+</div>
+</div>
+    <div class="bubble">
+<div class="item" id="first"></div>
+<div class="item" id="second"></div>
+<div class="item" id="third"></div>
+
+
+
+  </div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./bubbles.js"></script>
+<script src="./main.js"></script>
+<script type="text/javascript">
+
+
+let scrolling = false;
+var scrollup=false
+setInterval(() => {
+    if (scrolling) {
+        scrolling = false;
+        console.log("scroll")
+        var to
+        if(scrollup){
+        to = page+1
+      }
+        else{
+          to=page-1
+        }
+        if (to<6 && to>0 && $(window).width()>1000 &&  $(window).height()>950){
+          $( "#ind-"+to.toString() ).click()
+        }
+    }
+},1000);
+
+$(window).on("wheel",function(e){
+scrolling=true
+if(e.originalEvent.wheelDelta<0)
+scrollup =true
+else{
+  scrollup=false
+}
+
+});
+
+  $( document ).ready(function() {
+    if($(window).width()>1000){
+    $(".pg-2").hide()
+    $(".pg-3").hide()
+    $(".pg-4").hide()
+    $(".pg-5").hide()
+    $(".pg-6").hide()
+}
+  });
+  $( window ).resize(function() {
+  if($(window).width()>1000){
+    $("#list-2").show()
+    $("#list-1").show()
+    $(".pg-2").hide()
+    $(".pg-3").hide()
+    $(".pg-4").hide()
+    $(".pg-5").hide()
+    $(".pg-6").hide()
+
+    show= false;
+  }
+  if($(window).width()<1000){
+  $(".pg-1").show()
+  $(".pg-2").show()
+  $(".pg-3").show()
+  $(".pg-4").show()
+  $(".pg-5").show()
+  $(".pg-6").show()
+  }
+  });
+
+
+</script>
+
+
+</html>

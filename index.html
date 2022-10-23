@@ -1,0 +1,165 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+</head>
+<body>
+  <div class="score">Score:<span id="val" >0</span></div>
+
+  <div class="main_layout">
+<div class="header">
+  <nav class="option">
+  <ul>
+  <li class="option"><i class="fa-solid fa-bars"></i>  </li>
+</ul>
+</nav>
+<nav id="list-1">
+<ul>
+<li class="current" id="aboutme" onclick="goto('./index.html')">
+    About me
+    </li>
+  <li id="workexp" onclick="goto('./workexp.html')">
+    Work Experience
+</li>
+    <li id="port" onclick="goto('./portfolio.html')">
+        Portfolio    </li>
+        <li id="res" onclick="window.open('./assets/BenetouSmaragdi_Resume.pdf')">
+          Resume
+        </li>
+
+
+
+  </ul>
+
+</nav>
+<nav id="list-2">
+<ul class="contact-list">
+
+  <li onclick="window.open('https://www.linkedin.com/in/smaragdabenetou')">
+<i class="fa-brands fa-linkedin"></i>    </li>
+
+<li onclick="copyToClipboard('benetou.smaragda@gmail.com')" >
+<i class="fa-solid fa-envelope"></i>  </li>
+
+  </ul>
+
+</nav>
+</div>
+<div class="content">
+<div class="outer">
+
+  <div class="main pg-1">
+<div class="text ">
+  <span class="large-txt">Hi,</span> </br>my name is
+  Smaragda Benetou </br>  and I am an aspiring software engineer. </br></<br>
+  Welcome to my personal space!</div>
+<div class="image small-img">
+  <img src="./img/me.png" />
+
+</div>
+
+  </div>
+  <div class="main pg-2">
+<div class="aboutme ">
+
+  I am a student at the National and Technical University of Athens currently attending my 5th year in an Integrated Masters degree in Electrical and Computer Engineering. At this period, I am working on my diploma thesis in collaboration with ETH,Zurich on Semantic Image Segmentation.
+
+
+  </div>
+
+</div>
+<div class="main pg-3">
+<div class="aboutme ">
+
+  My focus in the curriculum is on Software, Robotics and Signals with a GPA of 8.3/10. I have a strong foundation in programming with experience in C++, C#, C, python, javascript, SQL, dart, prolog, ml.
+  Along with experience on frameworks such as ASP.NET MVC 5 and Flutter. I work on both Windows and Linux platforms. Experience with Database Management Systems such as Microsoft SQL Server, phpmyadmin, InfluxDb. Also familiar with tools used in robotics such as Ros and in Machine Learning such as python libraries tensorflow and torch.
+
+</div>
+
+</div>
+</div>
+<div class="indicators">
+  <ul>
+    <li class="ind chos" id="ind-1">
+
+      </li>
+    <li class="ind"  id="ind-2" >
+  </li>
+        <li class="ind" id="ind-3">
+           </li>
+    </ul>
+
+
+</div>
+</div>
+</div>
+    <div class="bubble">
+<div class="item" id="first"></div>
+<div class="item" id="second"></div>
+<div class="item" id="third"></div>
+
+
+
+  </div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./bubbles.js"></script>
+<script src="./main.js"></script>
+<script type="text/javascript">
+let scrolling = false;
+var scrollup=false
+setInterval(() => {
+    if (scrolling) {
+        scrolling = false;
+        console.log("scroll")
+        var to
+        if(scrollup){
+        to = page+1
+      }
+        else{
+          to=page-1
+        }
+        if (to<4 && to>0 && $(window).width()>1000 &&  $(window).height()>950){
+          $( "#ind-"+to.toString() ).click()
+        }
+    }
+},1000);
+
+$(window).on("wheel",function(e){
+scrolling=true
+if(e.originalEvent.wheelDelta<0)
+scrollup =true
+else{
+  scrollup=false
+}
+
+});
+
+
+  $( document ).ready(function() {
+    if($(window).width()>1000){
+    $(".pg-2").hide()
+    $(".pg-3").hide()
+}
+  });
+  $( window ).resize(function() {
+  if($(window).width()>1000){
+    $("#list-2").show()
+    $("#list-1").show()
+    $(".pg-2").hide()
+    $(".pg-3").hide()
+    show= false;
+  }
+  if($(window).width()<1000){
+  $(".pg-1").show()
+  $(".pg-2").show()
+  $(".pg-3").show()
+
+  }
+  });
+
+
+</script>
+
+
+</html>
