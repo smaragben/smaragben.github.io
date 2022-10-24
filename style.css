@@ -14,7 +14,7 @@ ul{
 
   background-color: rgba(0,0,0,0);
 }
-li a { margin: 0px; display: block; width: 100%; height: 100%; }
+li a { margin: 0px; display: block; width: 100%; height: 100%; overflow-wrap: break-word;}
 
 .content{
 
@@ -135,6 +135,7 @@ border: dashed 2px  white;
 a{
 text-decoration: none;
 background-color: rgba(0,0,0,0);
+overflow-wrap: break-word;
 }
 
 b{
