@@ -23,7 +23,7 @@
 </li>
     <li id="port" onclick="goto('./portfolio.html')">
         Portfolio    </li>
-    <li id="res" onclick="window.open('./assets/BenetouSmaragda_Resume.pdf')">
+    <li id="res" onclick="window.open('./assets/BenetouSmaragdi_Resume.pdf')">
           Resume
         </li>
 
@@ -44,12 +44,14 @@
 </nav>
 </div>
 <div class="content">
+  <div class="downarrow"><i class=" fa-solid fa-chevron-up fa-4x" id="goup" style="color:white;"></i></div>
+
 <div class="outer">
 
 
 <div class="main pg-1">
 <div class="text ">
-  Collaborated  with Noetik and worked on a web application Ergonnect. My job includes both back-end and front-end tasks. On the server-side I worked with C#, MVC5 ASP.NET framework and on the database management I used SSMS. On the client-side I used javascipt with jQuery library, CSS3 and HTML5. In the last six months I am the only one working on this project developing the client's new requests.
+  I work on a web application, Ergonnect, in collaboration with Noetik. My job includes both back-end and front-end tasks. On the server-side I worked with C#, MVC5 ASP.NET framework and on the database management I used SSMS. On the client-side I used javascipt with jQuery library, CSS3 and HTML5. In the last six months I am the only one working on this project developing the client's new requests.
 </div>
 <div class="image noborder lg-img">
 <img class="noborder" src="./img/ergonnect.png" />
@@ -82,6 +84,8 @@ I am a member of Prom Racing NTUA FSAE Team and Specifically member of the Elect
 
 
 </div>
+<div class="downarrow"><i class=" fa-solid fa-chevron-down fa-4x" id="godown" style="color:white;"></i></div>
+
 </div>
 </div>
     <div class="bubble">
@@ -129,10 +133,12 @@ else{
 });
 
   $( document ).ready(function() {
-    if($(window).width()>1000){
+
     $(".pg-2").hide()
     $(".pg-3").hide()
-}
+    $("#godown").show()
+    $("#goup").hide()
+
   });
   $( window ).resize(function() {
   if($(window).width()>1000){
@@ -150,7 +156,34 @@ else{
   }
   });
 
+  $("#godown").on('click', function(){
+    var to = page+1
+    if(to< 3){
+      $( ".pg-"+to.toString() ).addClass("down")
+      $( ".pg-"+to.toString() ).removeClass("up")
+            $( "#ind-"+to.toString() ).click()
 
+    }
+    if(to == 2){
+      $("#godown").hide()
+    }
+    if(to == 2){
+      $("#goup").show()
+    }
+  })
+  $("#goup").on('click', function(){
+    var to = page-1
+    if(to>0){
+      $( "#ind-"+to.toString() ).click()
+      $( ".pg-"+to.toString() ).addClass("up")
+      $( ".pg-"+to.toString() ).removeClass("down")    }
+    if(to == 1){
+      $("#goup").hide()
+    }
+    if(to == 1){
+      $("#godown").show()
+    }
+  })
 </script>
 
 

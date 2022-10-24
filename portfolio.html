@@ -23,7 +23,7 @@
 </li>
     <li id="port" class="current"  onclick="goto('./portfolio.html')">
         Portfolio    </li>
-        <li id="res" onclick="window.open('./assets/BenetouSmaragda_Resume.pdf')">
+        <li id="res" onclick="window.open('./assets/BenetouSmaragdi_Resume.pdf')">
           Resume
         </li>
 
@@ -46,6 +46,8 @@
 </nav>
 </div>
 <div class="content">
+  <div class="downarrow"><i class=" fa-solid fa-chevron-up fa-4x" id="goup" style="color:white;"></i></div>
+
 <div class="outer">
 
 
@@ -119,6 +121,8 @@ Prom Racing Telemetry web application. Implemented with Node.Js server. Signals 
 
 
 </div>
+<div class="downarrow"><i class=" fa-solid fa-chevron-down fa-4x" id="godown" style="color:white;"></i></div>
+
 </div>
 </div>
     <div class="bubble">
@@ -151,8 +155,9 @@ setInterval(() => {
         }
         if (to<6 && to>0 && $(window).width()>1000 &&  $(window).height()>950){
           $( "#ind-"+to.toString() ).click()
-        }
+
     }
+  }
 },1000);
 
 $(window).on("wheel",function(e){
@@ -166,13 +171,15 @@ else{
 });
 
   $( document ).ready(function() {
-    if($(window).width()>1000){
+
     $(".pg-2").hide()
     $(".pg-3").hide()
     $(".pg-4").hide()
     $(".pg-5").hide()
     $(".pg-6").hide()
-}
+    $("#godown").show()
+    $("#goup").hide()
+
   });
   $( window ).resize(function() {
   if($(window).width()>1000){
@@ -186,17 +193,39 @@ else{
 
     show= false;
   }
-  if($(window).width()<1000){
-  $(".pg-1").show()
-  $(".pg-2").show()
-  $(".pg-3").show()
-  $(".pg-4").show()
-  $(".pg-5").show()
-  $(".pg-6").show()
-  }
+
   });
 
+  $("#godown").on('click', function(){
+    var to = page+1
+    if(to< 6){
 
+      $( ".pg-"+to.toString() ).addClass("down")
+      $( ".pg-"+to.toString() ).removeClass("up")
+      $( "#ind-"+to.toString() ).click()
+
+    }
+    if(to == 5){
+      $("#godown").hide()
+    }
+    if(to == 2){
+      $("#goup").show()
+    }
+  })
+  $("#goup").on('click', function(){
+    var to = page-1
+    if(to>0){
+        $( ".pg-"+to.toString() ).addClass("up")
+        $( ".pg-"+to.toString() ).removeClass("down")
+      $( "#ind-"+to.toString() ).click()
+    }
+    if(to == 1){
+      $("#goup").hide()
+    }
+    if(to == 2){
+      $("#godown").show()
+    }
+  })
 </script>
 
 
