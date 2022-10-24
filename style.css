@@ -18,7 +18,7 @@ li a { margin: 0px; display: block; width: 100%; height: 100%; }
 
 .content{
 
-  background-color: rgba(153, 237, 195,1);
+  background-color: rgba(148, 222, 185,1);
   overflow-y: scroll;
 
 }
@@ -29,6 +29,7 @@ nav ul{
   display: flex;
   text-align:end;
   list-style: none;
+  margin-left: 0;
 }
 
 nav li{
@@ -38,14 +39,14 @@ nav li{
 nav li:hover{
   border-top: solid 1px black;
   cursor: pointer;
-  background-color: rgba(153, 237, 195,0.3)
+  background-color: rgba(148, 222, 185,0.3);
 
 }
 
 nav li.current{
   border-top: solid 1px black;
   cursor: pointer;
-  background-color: rgba(153, 237, 195,0.3)
+  background-color: rgba(148, 222, 185,0.3);
 
 }
 
@@ -473,7 +474,8 @@ cursor: pointer;
     flex-direction: column;
     list-style: none;
     padding : 1em 0;
-    align-items: end;
+    align-items: flex-end;
+    margin-left: 0;
     min-height: min-content;
     background-color: rgba(0,0,0,0);
 
@@ -500,7 +502,7 @@ cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(153, 237, 195,0.8);
+    background-color: rgba(148, 222, 185,0.8);
 color: white;
 
   }
